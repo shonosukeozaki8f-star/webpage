@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background-color: #f6f5cf;
+  color: #333;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+}
+
+.question {
+  display: inline-block;
+  background-color: #a7d8a0;
+  color: #0b3d1a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 30px 0 10px;
+}
+
+p {
+  margin: 0 0 20px;
+  font-size: 15px;
+}
+
+.illustration {
+  display: block;
+  width: 60%;
+  max-width: 300px;
+  margin: 40px auto 0;
+}
