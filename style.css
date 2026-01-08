@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-  background-color: #f6f5cf;
-  color: #333;
+  background: #f7f6cf;
+  font-family: "Noto Sans JP", sans-serif;
   line-height: 1.8;
+  color: #333;
 }
 
 .container {
-  max-width: 720px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 40px 20px;
 }
@@ -18,29 +18,47 @@ section {
 
 h2 {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 0.1em;
-}
-
-.question {
-  display: inline-block;
-  background-color: #a7d8a0;
-  color: #0b3d1a;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  margin: 30px 0 10px;
+  margin-bottom: 30px;
 }
 
 p {
-  margin: 0 0 20px;
-  font-size: 15px;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
-.illustration {
-  display: block;
-  width: 60%;
-  max-width: 300px;
+/* 吹き出し */
+.bubble {
+  position: relative;
+  display: inline-block;
+  background: #9fd8a0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin: 30px 0 10px;
+  font-size: 14px;
+}
+
+/* 吹き出しのしっぽ */
+.bubble::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  bottom: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #9fd8a0;
+}
+
+/* イラスト枠 */
+.illust {
+  width: 200px;
+  height: 60px;
+  background: #ddd;
   margin: 40px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
 }
