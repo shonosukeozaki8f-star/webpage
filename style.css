@@ -1,64 +1,265 @@
 body {
-  margin: 0;
-  background: #f7f6cf;
-  font-family: "Noto Sans JP", sans-serif;
-  line-height: 1.8;
-  color: #333;
+    background-color: #fdfbe2; /* 画像と同じ薄黄色 */
+    margin: 0;
+    padding: 60px 0;
+    font-family: sans-serif;
+    color: #333;
+    line-height: 1.8;
 }
 
 .container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 40px 20px;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
-section {
-  margin-bottom: 80px;
+/* クマとプロフィールの横並び */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 25px;
 }
 
-h2 {
-  text-align: center;
-  font-size: 18px;
-  letter-spacing: 0.1em;
-  margin-bottom: 30px;
+.kuma-image img {
+    width: 300px; /* クマのサイズ調整 */
+    height: auto;
 }
 
-p {
-  font-size: 14px;
-  margin-bottom: 20px;
+.profile-info {
+    font-size: 15px;
+    font-weight: bold;
 }
 
-/* 吹き出し */
-.bubble {
-  position: relative;
-  display: inline-block;
-  background: #9fd8a0;
-  padding: 8px 16px;
-  border-radius: 20px;
-  margin: 30px 0 10px;
-  font-size: 14px;
+.profile-info p {
+    margin: 5px 0;
 }
 
-/* 吹き出しのしっぽ */
-.bubble::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  bottom: -10px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-top-color: #9fd8a0;
+/* プロフィール下の導入文 */
+.intro-text {
+    margin-bottom: 80px;
+    font-size: 15px;
+    line-height: 2.0;
 }
 
-/* イラスト枠 */
-.illust {
-  width: 200px;
-  height: 60px;
-  background: #ddd;
-  margin: 40px auto 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
+/* 見出しのデザイン */
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0 50px;
+}
+
+.section-title .line {
+    height: 1px;
+    background-color: #333;
+    width: 80px;
+}
+
+.section-title h1 {
+    font-size: 24px;
+    margin: 0 25px;
+    font-weight: normal;
+}
+
+.text-block {
+    margin-bottom: 80px;
+}
+
+/* 吹き出しを左に大きく突き出させる設定 */
+.interview-group {
+    margin-bottom: 100px;
+}
+
+.question {
+    background-color: #7fb880; /* 画像の緑色 */
+    display: inline-block;
+    padding: 8px 25px;
+    border-radius: 25px;
+    position: relative;
+    margin-bottom: 25px;
+    margin-left: -200px; /* ★ここが重要：左側に突き出し */
+    font-size: 15px;
+}
+
+.question::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    bottom: -10px;
+    border-style: solid;
+    border-width: 12px 10px 0 10px;
+    border-color: #7fb880 transparent transparent transparent;
+}
+
+.answer {
+    padding-left: 20px;
+}
+
+.image-box {
+    background-color: #d9dee6;
+    width: 400px;
+    height: 150px;
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+/* 最初は透明で、20px下に下げておく */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* スクロールしてこのクラスがついたら表示する */
+.scroll-fade.is-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* GIF表示用の設定 */
+.gif-container {
+    width: 100%;
+    max-width: 600px; /* お好みのサイズに合わせて調整してください */
+    margin: 100px auto; /* 上下の余白 */
+    text-align: center;
+}
+
+.gif-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* 少し角を丸くすると馴染みます */
+    /* box-shadow: 0 4px 15px rgba(0,0,0,0.1); 必要であれば影をつけてください */
+}
+/* 追加：イラスト①の画像用設定 */
+.image-box-custom {
+    width: 100%;
+    max-width: 600px;
+    margin: 80px auto;
+    text-align: center;
+}
+.image-box-custom img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 最後の画像だけを大きくする */
+.image-large {
+    max-width: 1000px; /* コンテナ(650px)を無視して広げたい場合 */
+    width: 140%;       /* 元のサイズより大きく */
+    margin-left: -20%; /* 中央寄せを保ちつつ左右に突き出させる */
+}
+
+.image-large img {
+    border-radius: 0;  /* 必要であれば角の丸みをなくす */
+}
+/* 2つの画像を横並びにして中央に寄せる */
+.flex-images {
+    display: flex;
+    align-items: center;    /* 上下の高さを中央で揃える */
+    justify-content: center; /* 左右の中央に配置 */
+    gap: 20px;               /* 画像と画像の間隔 */
+}
+
+/* 野球ボールのサイズ調整（お好みで調整してください） */
+/* 「image-box-custom クラスの中にある ball-img」と詳しく指定する */
+.image-box-custom .ball-img {
+    width: 100px;  /* ここで好きなサイズに調整できます */
+    flex-shrink: 0; /* ボールが潰れないように固定する設定 */
+}
+
+/* クマの画像も同様に詳しく指定 */
+.image-box-custom .kuma-img {
+    width: 600px;  /* クマのサイズもここでお好みで調整してください */
+    height: auto;
+}
+
+/* クマのサイズ調整 */
+.kuma-img {
+    width: 70%;   /* 全体の7割くらいの幅にする */
+    height: auto;
+}
+/* アニメーション用の高さを確保（4画面分くらいスクロールさせる） */
+.scroll-section {
+    height: 400vh; 
+    position: relative;
+}
+
+/* 画面中央に固定する要素 */
+/* 修正：親要素の overflow: hidden を削除または変更 */
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; ← これがあるとボールの端が切れるので削除します */
+    pointer-events: none; /* ボールが大きくなった時に下の文字がクリックできなくなるのを防ぐ */
+}
+
+/* 修正：ボールの拡大基準点を中心にする */
+#anim-ball {
+    width: 100px;
+    height: auto;
+    z-index: 100; /* 他の要素より手前に来るように大きく設定 */
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+    transform-origin: center center; /* 中心から拡大するように指定 */
+    pointer-events: auto;
+}
+
+/* クマの画像などはそのまま */
+.image-box-custom.flex-images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+/* 親要素：重なりの基準点 */
+.overlay-container {
+    position: relative;
+    display: inline-block;
+    width: 140%;           /* 以前の設定を維持 */
+    margin-left: -20%;     /* 以前の設定を維持 */
+}
+
+/* 土台となる画像 */
+.base-img {
+    width: 100%;
+    display: block;
+}
+
+/* 上に重ねるクマの画像（左下配置） */
+/* 「image-box-custom クラスの中にある overlay-kuma」と詳しく指定する */
+/* アニメーション用の高さを確保 */
+#kuma-sticky-section {
+    height: 300vh; 
+    position: relative;
+}
+
+.image-box-custom .overlay-kuma {
+    position: absolute;
+    bottom: -10px;
+    left: -20px;
+    width: 380px; /* 初期サイズ（大きい状態） */
+    height: auto;
+    z-index: 20;
+    /* 変化を滑らかにする */
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+    /* 左下を基準に動きを計算する場合はここを調整（今回は中心基準が計算しやすいです） */
+    transform-origin: center center;
+}
+.fixed-design {
+    position: fixed;   /* 画面に対して固定 */
+    top: 20px;         /* 上から20pxの位置 */
+    right: 20px;       /* 右から20pxの位置 */
+    width: 150px;      /* 画像のサイズ（お好みで調整してください） */
+    height: auto;
+    z-index: 1000;     /* 一番手前に表示されるようにする */
+    pointer-events: none; /* 画像の下にあるボタンやリンクを触れるようにする設定 */
 }
